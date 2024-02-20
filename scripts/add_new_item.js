@@ -6,7 +6,7 @@ add_item_btn.addEventListener("click", () => {
     const name = item_input.value.trim();
     const quantity = +item_quantity.value;
 
-    if (name) {
+    if (name && quantity > 0) {
         const new_item = {
             name,
             quantity,
