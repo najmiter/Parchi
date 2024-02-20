@@ -33,6 +33,43 @@ header {
     gap: 0.5rem;
 }
 
+.none {
+    display: none;
+}
+
+.animate-away {
+    animation-duration: 1s;
+    animation-name: slideaway;
+}
+
+@keyframes slideaway {
+    from {
+        margin-left: 0%;
+    }
+
+    to {
+        margin-left: 100%;
+        opacity: 0;
+    }
+}
+
+.animate-in {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 0%;
+        opacity: 100%;
+    }
+}
+
 hr {
     width: clamp(6rem, 20rem, 30rem);
     border: .05px dotted hsl(var(--muted-foreground));
@@ -64,7 +101,19 @@ button {
     cursor: pointer;
     background-color: hsl(var(--foreground));
     width: fit-content;
-    justify-self: right;
+
+    transition: background-color 300ms ease;
+}
+
+.dark-btn {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+}
+
+
+button:hover {
+    background-color: hsl(var(--muted-foreground));
+    color: hsl(var(--background));
 }
 
 .item {
@@ -117,6 +166,8 @@ nav {
     border-radius: var(--radius);
     padding: 1rem;
     min-width: 20rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 #logo {
