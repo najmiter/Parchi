@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Parchi</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <input
+                id="item-input-name"
+                type="text"
+                placeholder="Type the item..."
+                value=""
+            />
+            <input
+                id="item-input-quantity"
+                type="number"
+                placeholder="Type quantity..."
+                value="1"
+            />
+            <button id="add-item-btn">Add</button>
+        </header>
+        <hr />
+        <label style="color: hsl(var(--muted-foreground)); opacity: 40%"
+            >Click the item to mark it down</label
+        >
+        <main>
+            <table class="items">
+                <thead>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Bought?</th>
+                </thead>
+                <tbody>
+                    <!-- <tr aria-id="" class="item">
+                        <td class="item-name">Soap</td>
+                        <td class="item-quantity">5</td>
+                        <td class="item-been-bought">&times;</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <!-- <div class="item">
+                <h3 class="item-name">Soap</h3>
+                <h3 class="item-quantity">5</h3>
+                <p class="item-been-bought">&times;</p>
+            </div> -->
+        </main>
+    </body>
+</html>
