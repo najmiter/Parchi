@@ -4,7 +4,7 @@ hide_adder_btn.addEventListener("click", () => {
     const header = document.querySelector("header");
     const is_hidden = header.classList.contains("none");
 
-    const delay = is_hidden ? 0 : 1000;
+    const delay = is_hidden ? 0 : 500;
 
     hide_adder_btn.textContent = !is_hidden ? "Add More" : "Start Buying";
 
