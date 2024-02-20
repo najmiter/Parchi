@@ -38,7 +38,7 @@ header {
 }
 
 .animate-away {
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: slideaway;
 }
 
@@ -54,7 +54,7 @@ header {
 }
 
 .animate-in {
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: slidein;
 }
 
