@@ -8,23 +8,9 @@
 :root {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
     --radius: 0.5rem;
 }
 
@@ -95,6 +81,7 @@ button {
     text-align: left;
     border-radius: var(--radius);
     font-size: 1em;
+    overflow-y: scroll;
 }
 
 .items th,
@@ -116,4 +103,24 @@ button {
 
 .item-been-bought-yes {
     color: #5eff52;
+}
+
+main {
+    height: 25rem;
+    overflow-y: scroll;
+}
+
+nav {
+    width: 60%;
+    background-color: rgba(38, 38, 38, 0.359);
+    backdrop-filter: blur(50px);
+    border-radius: var(--radius);
+    padding: 1rem;
+    min-width: 20rem;
+}
+
+#logo {
+    cursor: pointer;
+    width: fit-content;
+    color: hsl(var(--muted-foreground));
 }
