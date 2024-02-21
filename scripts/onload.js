@@ -3,7 +3,7 @@ const search = new URLSearchParams(url.search);
 
 if (search.get("Parchi")) {
     const args = search.get("Parchi");
-    localStorage.setItem("Parchi", undefined);
+    localStorage.setItem("Parchi", null);
     Parchi.length = 0;
 
     const items = args.split("_");
