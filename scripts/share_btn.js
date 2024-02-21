@@ -10,7 +10,7 @@ share_btn.addEventListener("click", () => {
         const items = [];
 
         Parchi.forEach(({ name, quantity, been_bought }) => {
-            const item = `${name.replaceAll(" ", "%s%")}-${quantity}-${Number(been_bought)}`;
+            const item = `${name}-${quantity}-${Number(been_bought)}`;
             items.push(item);
         });
         search.append("Parchi", items.join("_"));
