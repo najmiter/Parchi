@@ -10,7 +10,9 @@ if (search.get("Parchi")) {
     for (const item of items) {
         const [n, q, b] = item.split("-");
 
-        Parchi.push(ParchiItem(n, q, b === "0" ? false : true));
+        Parchi.push(
+            ParchiItem(n.replaceAll("%s%", " "), q, b === "0" ? false : true)
+        );
     }
 
     write_localStorage();
