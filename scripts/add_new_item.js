@@ -14,9 +14,10 @@ add_item_btn.addEventListener("click", () => {
         };
 
         Parchi.unshift(new_item);
+        write_localStorage();
         revalidate_rows(false);
     }
 
     item_input.value = "";
-    item_quantity.value = 1;
+    item_quantity.value = "";
 });

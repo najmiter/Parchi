@@ -1,5 +1,8 @@
 function revalidate_rows(sort = true) {
     thead.innerHTML = "";
+
+    if (!read_localStorage()) return;
+
     if (sort) Parchi.sort((item) => (item.been_bought ? 1 : -1));
 
     for (const [i, item] of Parchi.entries()) {

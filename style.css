@@ -16,6 +16,7 @@
 
 body {
     height: 100dvh;
+    max-width: 100dvw;
     background-color: hsl(var(--background));
     display: flex;
     align-items: center;
@@ -23,7 +24,32 @@ body {
     gap: 1rem;
     color: hsl(var(--foreground));
     padding-block: 1rem;
+    scroll-behavior: smooth;
+    position: relative;
+    overflow-x: hidden;
 }
+
+.background-blur {
+    position: absolute;
+    width: 350px;
+    aspect-ratio: 1;
+    z-index: -1;
+    background-color: #b867f2;
+    filter: blur(300px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* body::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 350px;
+    aspect-ratio: 1;
+    background-color: #b867f2;
+    filter: blur(300dvw);
+    opacity: 50%;
+} */
 
 header {
     width: clamp(6rem, 20rem, 30rem);
@@ -105,16 +131,22 @@ button {
     transition: background-color 300ms ease;
 }
 
-.dark-btn {
+.btn:hover {
+    background-color: hsl(var(--muted-foreground));
+    color: hsl(var(--background));
+}
+
+.dark-btn,
+.dark-btn:active {
     background-color: hsl(var(--muted));
     color: hsl(var(--muted-foreground));
 }
 
-
-button:hover {
-    background-color: hsl(var(--muted-foreground));
-    color: hsl(var(--background));
+.dark-btn:hover {
+    color: hsl(var(--muted-foreground));
+    background-color: hsl(var(--background));
 }
+
 
 .item {
     padding: 2rem;

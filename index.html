@@ -12,6 +12,8 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div class="background-blur"></div>
+
         <nav>
             <h1 id="logo">Parchi &#9998;</h1>
             <button class="dark-btn" id="hide-adder">Start Buying</button>
@@ -30,7 +32,12 @@
                 min="1"
             />
             <div class="btns">
-                <button class="btn dark-btn" id="clear-all-btn">
+                <button class="btn dark-btn" id="share-btn">Share</button>
+                <button
+                    style="color: rgb(255, 74, 13)"
+                    class="btn dark-btn"
+                    id="clear-all-btn"
+                >
                     Clear All
                 </button>
                 <button class="btn" id="add-item-btn">Add</button>
@@ -65,6 +72,7 @@
         <script src="scripts/add_new_item.js"></script>
         <script src="scripts/clear_all_items.js"></script>
         <script src="scripts/hide_adder.js"></script>
+        <script src="scripts/share_btn.js"></script>
         <script src="main.js"></script>
     </body>
 </html>

@@ -9,11 +9,39 @@ function ParchiItem(name, quantity, been_bought = false) {
 }
 
 const Parchi = [
-    ParchiItem("soap", 5, true),
-    ParchiItem("flowers", 10, true),
-    ParchiItem("mobile cards", 5),
-    ParchiItem("her", 1),
+    // ParchiItem("soap", 5, true),
+    // ParchiItem("flowers", 10, true),
+    // ParchiItem("mobile cards", 5),
+    // ParchiItem("her", 1),
 ];
+
+function read_localStorage() {
+    if (localStorage.getItem("Parchi") !== "undefined") {
+        const local_parchi = JSON.parse(localStorage.getItem("Parchi"))?.Parchi;
+        Parchi.length = 0;
+
+        for (const key of Object.keys(local_parchi)) {
+            const { name, quantity, been_bought } = local_parchi[key];
+            Parchi.push(ParchiItem(name, quantity, been_bought));
+        }
+
+        return Parchi;
+    }
+
+    return null;
+}
+
+function write_localStorage() {
+    const local_parchi = {
+        Parchi: {},
+    };
+
+    for (const [at, item] of Parchi.entries()) {
+        local_parchi.Parchi[at] = { ...item };
+    }
+
+    localStorage.setItem(`Parchi`, JSON.stringify(local_parchi));
+}
 
 const guide_msgs = {
     empty: "Start adding new items 🤑",
@@ -48,6 +76,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
 
         if (!Parchi[id].been_bought) {
             Parchi[id].been_bought = true;
+            write_localStorage();
             revalidate_rows();
         }
     });
