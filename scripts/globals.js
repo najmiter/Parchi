@@ -124,5 +124,6 @@ function create_row_item({ name, quantity, been_bought }, i) {
 }
 
 function toggle_items_visibility() {
-    document.querySelector(".items").classList.toggle("none");
+    const table = document.querySelector(".items");
+    table.style.display = Parchi.length === 0 ? "none" : "table";
 }

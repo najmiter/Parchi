@@ -3,13 +3,6 @@ add_item_btn.addEventListener("click", () => {
     const item_input = document.getElementById("item-input-name");
     const item_quantity = document.getElementById("item-input-quantity");
 
-    const show_items = document
-        .querySelector(".items")
-        .classList.contains("none");
-    if (show_items) {
-        toggle_items_visibility();
-    }
-
     const name = item_input.value.trim();
     const quantity = +item_quantity.value;
 
@@ -21,6 +14,8 @@ add_item_btn.addEventListener("click", () => {
         };
 
         Parchi.unshift(new_item);
+
+        toggle_items_visibility();
         write_localStorage();
         revalidate_rows(false);
     }
