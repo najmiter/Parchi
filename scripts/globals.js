@@ -47,7 +47,7 @@ function ParchiItem(name, quantity, been_bought = false) {
 }
 
 function read_localStorage() {
-    if (localStorage.getItem("Parchi") !== "undefined") {
+    if (localStorage.getItem("Parchi")) {
         const local_parchi = JSON.parse(localStorage.getItem("Parchi"))?.Parchi;
         Parchi.length = 0;
 
