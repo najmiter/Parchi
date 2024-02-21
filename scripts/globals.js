@@ -1,4 +1,42 @@
 const thead = document.querySelector("tbody");
+const Parchi = [
+    // ParchiItem("soap", 5, true),
+    // ParchiItem("flowers", 10, true),
+    // ParchiItem("mobile cards", 5),
+    // ParchiItem("her", 1),
+];
+
+function revalidate_rows(sort = true) {
+    thead.innerHTML = "";
+
+    if (!read_localStorage()) return;
+
+    if (sort) Parchi.sort((item) => (item.been_bought ? 1 : -1));
+
+    for (const [i, item] of Parchi.entries()) {
+        thead.appendChild(create_row_item(item, i));
+    }
+
+    const details = document.getElementById("details");
+    const items_count = Parchi.length;
+    const bought_count = Parchi.reduce(
+        (c, item) => (item.been_bought ? c + 1 : c),
+        0
+    );
+
+    details.textContent = items_count
+        ? `You have bought ${bought_count} items out of ${items_count}`
+        : "";
+
+    const msg =
+        items_count === 0
+            ? guide_msgs.empty
+            : bought_count < items_count
+              ? guide_msgs.bought_some_or_none
+              : guide_msgs.bought_all;
+
+    update_guide_msg(msg);
+}
 
 function ParchiItem(name, quantity, been_bought = false) {
     return {
@@ -7,13 +45,6 @@ function ParchiItem(name, quantity, been_bought = false) {
         been_bought,
     };
 }
-
-const Parchi = [
-    // ParchiItem("soap", 5, true),
-    // ParchiItem("flowers", 10, true),
-    // ParchiItem("mobile cards", 5),
-    // ParchiItem("her", 1),
-];
 
 function read_localStorage() {
     if (localStorage.getItem("Parchi") !== "undefined") {
@@ -90,4 +121,8 @@ function create_row_item({ name, quantity, been_bought }, i) {
     );
 
     return item;
+}
+
+function toggle_items_visibility() {
+    document.querySelector(".items").classList.toggle("none");
 }

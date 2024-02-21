@@ -4,6 +4,7 @@ clear_all_btn.addEventListener("click", () => {
     if (ok) {
         Parchi.length = 0;
         localStorage.setItem("Parchi", undefined);
+        toggle_items_visibility();
         write_localStorage();
         revalidate_rows();
     }
