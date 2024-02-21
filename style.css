@@ -36,20 +36,9 @@ body {
     z-index: -1;
     background-color: #b867f2;
     filter: blur(300px);
-    opacity: 0.5;
+    opacity: 0.3;
     pointer-events: none;
 }
-
-/* body::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 350px;
-    aspect-ratio: 1;
-    background-color: #b867f2;
-    filter: blur(300dvw);
-    opacity: 50%;
-} */
 
 header {
     width: clamp(6rem, 20rem, 30rem);
