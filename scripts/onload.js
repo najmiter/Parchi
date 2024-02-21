@@ -11,7 +11,7 @@ if (search.get("Parchi")) {
         const [n, q, b] = item.split("-");
 
         Parchi.push(
-            ParchiItem(n.replaceAll("%s%", " "), q, b === "0" ? false : true)
+            ParchiItem(n.replaceAll("+", " "), q, b === "0" ? false : true)
         );
     }
 
