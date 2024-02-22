@@ -23,6 +23,8 @@ share_btn.addEventListener("click", () => {
 
         // copy the 'unique' url
         navigator.clipboard.writeText(window.location.href);
+    } else {
+        toggle_popup("Please add some items first", "var(--warning-color)");
     }
 });
 
