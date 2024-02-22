@@ -14,6 +14,7 @@
     --radius: 0.5rem;
     --success-color: #5eff52;
     --danger-color: #ff5252;
+    --warning-color: #ffa952;
 }
 
 ::-webkit-scrollbar {
