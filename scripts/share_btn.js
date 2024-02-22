@@ -40,5 +40,6 @@ function toggle_popup(msg, color) {
     setTimeout(() => {
         pop_up_msg.classList.remove("popup");
         pop_up_msg.classList.add("popdown");
+        pop_up_msg.style.display = "none";
     }, 700);
 }
