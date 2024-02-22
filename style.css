@@ -33,7 +33,7 @@ body {
     padding-block: 1rem;
     scroll-behavior: smooth;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .background-blur {
@@ -217,6 +217,7 @@ nav {
     color: hsl(var(--muted-foreground));
     padding: 0.7rem 1.2rem;
     border-radius: var(--radius);
+    text-align: center;
 }
 
 .popup {
@@ -229,11 +230,12 @@ nav {
 
 @keyframes popup {
     from {
-        bottom: -5%;
+        bottom: -10%;
     }
 
     to {
         bottom: 3rem;
+        display: block;
     }
 }
 
@@ -243,6 +245,7 @@ nav {
     }
 
     to {
-        bottom: -5%;
+        bottom: -10%;
+        display: none;
     }
 }
