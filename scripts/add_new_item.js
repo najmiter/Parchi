@@ -1,4 +1,5 @@
 const add_item_btn = document.getElementById("add-item-btn");
+
 add_item_btn.addEventListener("click", () => {
     const item_input = document.getElementById("item-input-name");
     const item_quantity = document.getElementById("item-input-quantity");
@@ -15,9 +16,13 @@ add_item_btn.addEventListener("click", () => {
 
         Parchi.unshift(new_item);
 
+        toggle_popup("Item added successfully ✓", "var(--success-color)");
+
         toggle_items_visibility();
         write_localStorage();
         revalidate_rows(false);
+    } else {
+        toggle_popup("Invalid inputs", "var(--danger-color)");
     }
 
     item_input.value = "";

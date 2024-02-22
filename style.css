@@ -12,6 +12,8 @@
     --muted-foreground: 240 5% 64.9%;
     --input: 240 3.7% 15.9%;
     --radius: 0.5rem;
+    --success-color: #5eff52;
+    --danger-color: #ff5252;
 }
 
 ::-webkit-scrollbar {
@@ -50,6 +52,10 @@ header {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.5rem;
+}
+
+a {
+    text-decoration: none;
 }
 
 .none {
@@ -140,7 +146,6 @@ button {
     background-color: hsl(var(--background));
 }
 
-
 .item {
     padding: 2rem;
     border-radius: var(--radius);
@@ -171,12 +176,12 @@ button {
 }
 
 .item-been-bought {
-    color: #ff5252;
+    color: var(--danger-color);
     font-size: 1.5em;
 }
 
 .item-been-bought-yes {
-    color: #5eff52;
+    color: var(--success-color);
 }
 
 main {
@@ -199,4 +204,44 @@ nav {
     cursor: pointer;
     width: fit-content;
     color: hsl(var(--muted-foreground));
+}
+
+#pop-up-msg {
+    position: absolute;
+    display: none;
+    bottom: 3rem;
+    left: 50%;
+    translate: -50% 0;
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--radius);
+}
+
+.popup {
+    animation: popup 500ms ease forwards;
+}
+
+.popdown {
+    animation: popdown 500ms ease 700ms forwards;
+}
+
+@keyframes popup {
+    from {
+        bottom: -5%;
+    }
+
+    to {
+        bottom: 3rem;
+    }
+}
+
+@keyframes popdown {
+    from {
+        bottom: 3rem;
+    }
+
+    to {
+        bottom: -5%;
+    }
 }
