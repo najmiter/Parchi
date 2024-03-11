@@ -121,7 +121,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
 function mark_item_bought(item) {
     const id = +item.target.getAttribute("aria-id");
 
-    if (!Parchi[id].been_bought) {
+    if (!Parchi[id].been_bought && menu.style.display === "none") {
         Parchi[id].been_bought = true;
         write_localStorage();
         revalidate_rows();
