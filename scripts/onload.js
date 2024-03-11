@@ -11,6 +11,7 @@ if (search.get("Parchi")) {
         const [n, q, b] = item.split("-");
 
         Parchi.push(ParchiItem(n, q, b !== "0"));
+        console.log(n);
     }
 
     write_localStorage();

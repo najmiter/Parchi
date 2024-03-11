@@ -162,6 +162,7 @@ button {
     border-radius: var(--radius);
     font-size: 1em;
     overflow-y: scroll;
+    display: none;
 }
 
 .items th,

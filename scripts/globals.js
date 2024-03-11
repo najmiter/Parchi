@@ -1,15 +1,15 @@
 const thead = document.querySelector("tbody");
-const Parchi = [
-    // ParchiItem("soap", 5, true),
-    // ParchiItem("flowers", 10, true),
-    // ParchiItem("mobile cards", 5),
-    // ParchiItem("her", 1),
-];
+const Parchi = [];
 
 function revalidate_rows(sort = true) {
     thead.innerHTML = "";
 
-    if (!read_localStorage()) return;
+    if (!read_localStorage()) {
+        update_guide_msg(get_guide_msg(0));
+        return;
+    }
+
+    toggle_items_visibility();
 
     if (sort) Parchi.sort((item) => (item.been_bought ? 1 : -1));
 
@@ -28,14 +28,17 @@ function revalidate_rows(sort = true) {
         ? `You have bought ${bought_count} items out of ${items_count}`
         : "";
 
-    const msg =
-        items_count === 0
-            ? guide_msgs.empty
-            : bought_count < items_count
-              ? guide_msgs.bought_some_or_none
-              : guide_msgs.bought_all;
+    const msg = get_guide_msg(items_count, bought_count);
 
     update_guide_msg(msg);
+}
+
+function get_guide_msg(items_count, bought_count) {
+    return items_count === 0
+        ? guide_msgs.empty
+        : bought_count < items_count
+          ? guide_msgs.bought_some_or_none
+          : guide_msgs.bought_all;
 }
 
 function ParchiItem(name, quantity, been_bought = false) {
