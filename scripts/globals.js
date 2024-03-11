@@ -104,15 +104,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
     item.setAttribute("class", "item");
 
     item.addEventListener("contextmenu", handle_contextmenu);
-    item.addEventListener("click", (item_) => {
-        const id = +item_.target.getAttribute("aria-id");
-
-        if (!Parchi[id].been_bought) {
-            Parchi[id].been_bought = true;
-            write_localStorage();
-            revalidate_rows();
-        }
-    });
+    item.addEventListener("click", mark_item_bought);
 
     item.appendChild(create_row("item-name", name));
     item.appendChild(create_row("item-quantity", quantity));
@@ -124,6 +116,28 @@ function create_row_item({ name, quantity, been_bought }, i) {
     );
 
     return item;
+}
+
+function mark_item_bought(item) {
+    const id = +item.target.getAttribute("aria-id");
+
+    if (!Parchi[id].been_bought) {
+        Parchi[id].been_bought = true;
+        write_localStorage();
+        revalidate_rows();
+    }
+}
+
+function mark_item_unbought() {
+    const id = clicked_item;
+
+    if (Parchi[id].been_bought) {
+        Parchi[id].been_bought = false;
+        write_localStorage();
+        revalidate_rows();
+    }
+
+    clicked_item = -1;
 }
 
 function toggle_items_visibility() {
