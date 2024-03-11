@@ -9,6 +9,8 @@ edit_item.addEventListener("click", function () {
         Parchi.splice(clicked_item, 1);
 
         write_localStorage();
+    } else {
+        toggle_popup("Reset to edit", "var(--danger-color)");
     }
 
     revalidate_rows(-1, false);
