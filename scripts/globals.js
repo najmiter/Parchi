@@ -1,5 +1,6 @@
 const thead = document.querySelector("tbody");
 const Parchi = [];
+let clicked_item = -1;
 
 function revalidate_rows(sort = true) {
     thead.innerHTML = "";
@@ -93,6 +94,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
     function create_row(klass, data) {
         const td = document.createElement("td");
         td.setAttribute("class", klass);
+        td.setAttribute("aria-id", i);
         td.textContent = data;
 
         return td;
@@ -100,6 +102,8 @@ function create_row_item({ name, quantity, been_bought }, i) {
 
     const item = document.createElement("tr");
     item.setAttribute("class", "item");
+
+    item.addEventListener("contextmenu", handle_contextmenu);
 
     const new_item = create_row("item-name", name);
     new_item.setAttribute("aria-id", i);
