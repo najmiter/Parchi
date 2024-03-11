@@ -104,12 +104,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
     item.setAttribute("class", "item");
 
     item.addEventListener("contextmenu", handle_contextmenu);
-
-    const new_item = create_row("item-name", name);
-    new_item.setAttribute("aria-id", i);
-    item.appendChild(new_item);
-
-    new_item.addEventListener("click", (item_) => {
+    item.addEventListener("click", (item_) => {
         const id = +item_.target.getAttribute("aria-id");
 
         if (!Parchi[id].been_bought) {
@@ -119,6 +114,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
         }
     });
 
+    item.appendChild(create_row("item-name", name));
     item.appendChild(create_row("item-quantity", quantity));
     item.appendChild(
         create_row(
