@@ -1,4 +1,6 @@
 const thead = document.querySelector("tbody");
+const item_input = document.getElementById("item-input-name");
+const item_quantity = document.getElementById("item-input-quantity");
 const Parchi = [];
 let clicked_item = -1;
 
