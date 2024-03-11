@@ -141,8 +141,7 @@ button {
     color: hsl(var(--background));
 }
 
-.dark-btn,
-.dark-btn:active {
+.dark-btn {
     background-color: hsl(var(--muted));
     color: hsl(var(--muted-foreground));
 }
