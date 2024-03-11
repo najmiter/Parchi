@@ -266,12 +266,13 @@ nav {
     border-radius: 0.5rem;
     position: absolute;
     width: 7rem;
-    height: 4rem;
+    height: 6rem;
     z-index: 99;
 }
 
 .menu-item {
     cursor: pointer;
+    padding-block: 0.5rem;
 
     transition: color 300ms ease;
 }

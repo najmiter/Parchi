@@ -4,7 +4,7 @@ function handle_contextmenu(click) {
     click.preventDefault();
 
     const menu_width = 112;
-    const menu_height = 64;
+    const menu_height = 96;
 
     menu.style.display = "flex";
     menu.style.left = `${
