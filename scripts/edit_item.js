@@ -9,8 +9,8 @@ edit_item.addEventListener("click", function () {
         Parchi.splice(clicked_item, 1);
 
         write_localStorage();
-        revalidate_rows();
     }
 
+    revalidate_rows(-1, false);
     clicked_item = -1;
 });
