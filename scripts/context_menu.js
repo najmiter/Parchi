@@ -19,4 +19,11 @@ function handle_contextmenu(click) {
     }px`;
 
     clicked_item = +click.target.getAttribute("aria-id");
+
+    revalidate_rows(clicked_item, false);
+}
+
+function hide_contextmenu_and_revalidate() {
+    menu.style.display = "none";
+    revalidate_rows();
 }

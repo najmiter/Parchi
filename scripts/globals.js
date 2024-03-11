@@ -4,7 +4,7 @@ const item_quantity = document.getElementById("item-input-quantity");
 const Parchi = [];
 let clicked_item = -1;
 
-function revalidate_rows(sort = true) {
+function revalidate_rows(id = -1, sort = true) {
     thead.innerHTML = "";
 
     if (!read_localStorage()) {
@@ -17,7 +17,7 @@ function revalidate_rows(sort = true) {
     if (sort) Parchi.sort((item) => (item.been_bought ? 1 : -1));
 
     for (const [i, item] of Parchi.entries()) {
-        thead.appendChild(create_row_item(item, i));
+        thead.appendChild(create_row_item(item, i, id));
     }
 
     const details = document.getElementById("details");
@@ -92,7 +92,7 @@ function update_guide_msg(msg) {
     guide_msg.textContent = msg;
 }
 
-function create_row_item({ name, quantity, been_bought }, i) {
+function create_row_item({ name, quantity, been_bought }, i, id) {
     function create_row(klass, data) {
         const td = document.createElement("td");
         td.setAttribute("class", klass);
@@ -104,6 +104,10 @@ function create_row_item({ name, quantity, been_bought }, i) {
 
     const item = document.createElement("tr");
     item.setAttribute("class", "item");
+
+    if (id !== -1 && i !== id) {
+        item.style.opacity = 0.3;
+    }
 
     item.addEventListener("contextmenu", handle_contextmenu);
     item.addEventListener("click", mark_item_bought);

@@ -3,13 +3,11 @@ if (!navigator.userAgent.includes("Chrome")) {
 }
 
 document.addEventListener("click", function (click) {
-    if (!menu.contains(click.target)) {
-        menu.style.display = "none";
-    }
+    if (!menu.contains(click.target)) hide_contextmenu_and_revalidate();
 });
 
 document.addEventListener("keydown", function (key) {
-    if (key.code === "Escape") menu.style.display = "none";
+    if (key.code === "Escape") hide_contextmenu_and_revalidate();
 });
 
 // it's already checked inside but idk
