@@ -256,8 +256,8 @@ nav {
 }
 
 #menu {
-    background-color: hsl(var(--background));
     color: hsl(var(--muted-foreground));
+    background-color: rgb(39, 40, 46);
     display: none;
     flex-direction: column;
     gap: 0.5rem;
@@ -279,5 +279,5 @@ nav {
 }
 
 .menu-item:hover {
-    color: color-mix(in lab, var(--danger-color), var(--success-color));
+    color: color-mix(in lab, hsl(var(--muted-foreground)), hsl(var(--background)));
 }
