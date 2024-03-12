@@ -106,7 +106,14 @@ function create_row_item({ name, quantity, been_bought }, i) {
     item.setAttribute("class", "item");
 
     item.addEventListener("contextmenu", handle_contextmenu);
-    item.addEventListener("click", mark_item_bought);
+    item.addEventListener("mousedown", (click) => {
+        clicked_item = +click.target.getAttribute("aria-id");
+    });
+    item.addEventListener("mouseup", (click) => {
+        if (+click.target.getAttribute("aria-id") === clicked_item) {
+            mark_item_bought(clicked_item);
+        }
+    });
 
     item.appendChild(create_row("item-name", name));
     item.appendChild(create_row("item-quantity", quantity));
@@ -120,9 +127,7 @@ function create_row_item({ name, quantity, been_bought }, i) {
     return item;
 }
 
-function mark_item_bought(item) {
-    const id = +item.target.getAttribute("aria-id");
-
+function mark_item_bought(id) {
     if (!Parchi[id].been_bought && menu.style.display === "none") {
         Parchi[id].been_bought = true;
         write_localStorage();
@@ -130,16 +135,12 @@ function mark_item_bought(item) {
     }
 }
 
-function mark_item_unbought() {
-    const id = clicked_item;
-
+function mark_item_unbought(id) {
     if (Parchi[id].been_bought) {
         Parchi[id].been_bought = false;
         write_localStorage();
         revalidate_rows();
     }
-
-    clicked_item = -1;
 }
 
 function toggle_items_visibility() {
