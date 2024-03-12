@@ -13,6 +13,5 @@ edit_item.addEventListener("click", function () {
         toggle_popup("Reset to edit", "var(--danger-color)");
     }
 
-    revalidate_rows(false);
-    clicked_item = -1;
+    revalidate_rows();
 });
