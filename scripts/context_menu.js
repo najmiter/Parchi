@@ -2,6 +2,7 @@ const menu = document.getElementById("menu");
 
 function handle_contextmenu(click) {
     click.preventDefault();
+    full_items_opacity();
 
     const menu_width = 112;
     const menu_height = 144;
@@ -20,10 +21,26 @@ function handle_contextmenu(click) {
 
     clicked_item = +click.target.getAttribute("aria-id");
 
-    revalidate_rows(clicked_item, false);
+    dim_other_items(clicked_item);
 }
 
 function hide_contextmenu_and_revalidate() {
     menu.style.display = "none";
-    revalidate_rows();
+    full_items_opacity();
+}
+
+function dim_other_items(id) {
+    const items = document.querySelectorAll(".item");
+
+    items.forEach((item, i) => {
+        if (i !== id) {
+            item.style.opacity = 0.3;
+        }
+    });
+}
+
+function full_items_opacity() {
+    const items = document.querySelectorAll(".item");
+
+    items.forEach((item) => (item.style.opacity = 1));
 }
